@@ -1,197 +1,114 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-
-	<!--/ /---- Put your name in the title of the page ----/ /-->
-	<title>Krishna K R</title>
-	
-	<!--/ /-------- Normalize CSS --------/ /-->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-	
-	<!--/ /-------- Google Fonts --------/ /-->
-	<!-- Add a link to google fonts here if you want them -->
-	
-	<!--/ /-------- Font Awesome --------/ /-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-	<!--/ /-------- Your Styles --------/ /-->
-	<link href="styles.css" rel="stylesheet">
-
-	<!--/ /---Put a short description for your site below. 20 words or less---/ /-->
-	<meta description="A short description for your site...">
-
-	<!--/ /-------- Needed For Mobile Devices --------/ /-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="UTF-8">
+    <title>Krishna K R - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Krishna K R - Software Engineer Portfolio">
 </head>
 
 <body>
-	
-    <!-- ------------------------------------------------------
-    The site is designed to be mobile first. The wrapper elements
-	are in place for when you get to desktop size to contain the 
-	content.
-    ------------------------------------------------------- -->
-    
-	<header class="primary">
+	<div id="particles-js"></div>
+    <header class="primary">
         <div class="wrapper">
-            
-			<div class="logo-container">
-				<h1>Krishna K R's Portfolio</h1>
-
-				<!-- ------------------------------------------------------
-				Note that the image of the logo is linked to the home page.
-				------------------------------------------------------- -->
-				<a href="index.html"><img src="https://dummyimage.com/175/c4c4c4/fff&text=logo" alt="logo image" id="logo"></a>
-			</div>
-            
-            
-			<!-- ------------------------------------------------------
-            The navigation here is linking to the sections further down
-            the page.
-            ------------------------------------------------------- -->
-			<nav id="mainnav">
-            	<ul>
-                	<li><a href="#work">Work</a></li>
-                    <li><a href="#about-contact">About</a></li>
-                    <li><a href="#about-contact">Contact</a></li>
-                </ul>
-            </nav>
-            
-        </div>
-        
-    </header>
-    
-    <!-- ------------------------------------------------------
-    This is the work section, which has two parts: the featured
-	section and the projects section.
-    ------------------------------------------------------- -->
-    
-    <section id="work">
-   		<div class="wrapper">
-        	<h2>Check Out My Best Projects</h2>
-        	<section class="featured">
-                <article>
-                	<!-- ------------------------------------------------------
-                    Link the image below to the detail page for this project.
-                    Use the page.html file to make that page. Also link the 
-                    anchor tag in the paragraph below to the same page.
-                    ------------------------------------------------------- -->
-                	<a href="#"><img src="https://dummyimage.com/510x300/c4c4c4/fff&text=Featured+Project" alt="image"></a>
-                </article>
-                
-                <article>
-                	<h3>Title of Project</h3>
-                    <h4>Challenge Statement</h4>
-                    <p>Before they sold out single-origin coffee fingerstache sartorial freegan master cleanse. Sartorial blog fap, shoreditch scenester tacos poutine. Bespoke brunch viral listicle, keffiyeh celiac paleo organic scenester next level cliche put a bird on it cardigan. Forage kombucha pitchfork literally. Art party narwhal food truck selfies, XOXO leggings distillery four loko fap. An additional sentence.</p> <p><a href="#">Find out how I solved this problem</a></p> 
-                </article>
-            </section> <!-- end row -->
-            
-            
-            <!-- ------------------------------------------------------
-            The projects section is for additional projects. I put four in
-			here, but it could be more, or less. You just have to pay
-			attention to how they wrap, and how many you want per row.
-            
-            Note that each image should be linked to the page with more
-            detailed information about that project. You can use a copy of
-            page.html to create those pages.
-            ------------------------------------------------------- -->
-            
-            <section class="projects">
-            
-            	<article>
-                	<h3>Project Title</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Another+Project" alt="image"></a>
-                    <p><strong>Role:</strong> Designer</p>
-                    <p><strong>Description:</strong> Website for a restaurant and redesigned the online menu.</p>
-                </article>
-                
-                <article>
-                	<h3>Project Title</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Another+Project" alt="image"></a>
-                    <p><strong>Role:</strong> Designer</p>
-                    <p><strong>Description:</strong> Website for a restaurant and redesigned the online menu.</p>
-                </article>
-                
-                <article>
-                	<h3>Project Title</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Another+Project" alt="image"></a>
-                    <p><strong>Role:</strong> Designer</p>
-                    <p><strong>Description:</strong> Website for a restaurant and redesigned the online menu.</p>
-                </article>
-				
-				<article>
-                	<h3>Project Title</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Another+Project" alt="image"></a>
-                    <p><strong>Role:</strong> Designer</p>
-                    <p><strong>Description:</strong> Website for a restaurant and redesigned the online menu.</p>
-                </article>
-            
-            </section><!-- end row -->
-            
-        </div> <!-- end work wrapper -->
-    </section>
-    
-    
-    <!-- ------------------------------------------------------
-    This is the about and contact section. The links in the main
-    navigation link to this section. 
-    ------------------------------------------------------- -->
-    
-    <section id="about-contact" class="secondary">
-   		<div class="wrapper">
-        	
-			<div class="profile-photo">
-            	<img src="http://placehold.it/260?text=Your+Photo" alt="image">
+            <div class="hero">
+				<div class="background-videos">
+					<video class="left-video" autoplay muted loop playsinline>
+						<source src="Assets/cyber security stock footage - free video cyber security background 720.mp4" type="video/mp4">
+					</video>
+					<video class="right-video" autoplay muted loop playsinline>
+						<source src="Assets/The Chess Game l Cinematic Chess B Roll l Edelkrone 720.mp4" type="video/mp4">
+					</video>
+				</div>
+                <div class="profile-image-container">
+					<div class="profile-image">
+						<img src="Assets/Krishna K R.jpg" alt="Krishna K R">
+					</div>
+				</div>
+                <h1>Krishna K R</h1>
+                <h2>Software Engineer & Tech Enthusiast</h2>
+                <p class="tagline">Reliable and responsible engineer with strong background in cybersecurity, software development, and Large Language Models. </p>
             </div>
-			
-            <article>
-				<h2>About Me</h2>
-				<p>Fixie owner, father of 3, fender owner, reclaimed wood collector and javascripter. Acting at the junction of minimalism and intellectual purity to create great work for living breathing human beings. I'm a designer and this is my work.</p>
-				<h3>Skills</h3>
-				<p>I am particularly good at BLAH BLAH and really enjoy BLAH. I am currently learning BLAH and I'm very exited about BLAH BLAH.</p>
-			</article> 
-                
-			<article>
-				<h2>Contact Me!</h2>
-				<p>I am currently looking for opportunities to work on a team at a design shop. Please feel free to contact me by phone, email or through the usual social media channels.</p>
+        </div>
+    </header>
 
-				<!-- ------------------------------------------------------
-				Be sure to encode your email address at this site, so you 
-				don't get spam. http://wbwip.com/wbw/emailencoder.html
-				------------------------------------------------------- -->
+    <section id="experience">
+        <div class="wrapper">
+            <h2>Professional Experience</h2>
+            <div class="experience-grid">
+                <article class="experience-card">
+                    <div class="company-logo">
+                        <img src="Assets/Zentree Labs.png" alt="Zentree Labs Logo">
+                    </div>
+                    <h3>Zentree Labs</h3>
+                    <p class="duration">June 2024 - Aug 2024</p>
+                    <h4>Trainee</h4>
+                    <ul>
+                        <li>Trained on Digital Image Processing from ground up</li>
+                        <li>Implemented coding concepts for product development</li>
+                        <li>Developed strong interpersonal relations with the team</li>
+                    </ul>
+                </article>
 
-				<p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:&#101;&#109;&#097;&#105;&#108;&#064;&#115;&#111;&#109;&#101;&#119;&#104;&#101;&#114;&#101;&#046;&#099;&#111;&#109;">&#101;&#109;&#097;&#105;&#108;&#064;&#115;&#111;&#109;&#101;&#119;&#104;&#101;&#114;&#101;&#046;&#099;&#111;&#109;</a><br>
-				<i class="fa fa-phone" aria-hidden="true"></i> 123-456-7890</p>
+                <article class="experience-card">
+                    <div class="company-logo">
+                        <img src="Assets/CIE logo.jpg" alt="CIE Research">
+                    </div>
+                    <h3>CIE, PES University</h3>
+                    <p class="duration">Jan 2023 - April 2023</p>
+                    <h4>Tech Research Analyst</h4>
+                    <ul>
+                        <li>Fine-tuned Mistral 7b model with medical dataset</li>
+                        <li>Implemented Google Gemini 2b model locally</li>
+                        <li>Integrated system terminal access using Open Interpreter</li>
+                    </ul>
+                </article>
 
-				<!-- ------------------------------------------------------
-				You can see here that I have included font-awesome. It is used
-				to create the icons above and below. You can go to the font-awesome
-				website to see the available icons and swap some out.
-				------------------------------------------------------- -->
-
-				<p class="social">
-					<a href="#"><i class="fab fa-facebook"></i></a>
-					<a href="#"><i class="fab fa-linkedin"></i></a> 
-					<a href="#"><i class="fab fa-twitter-square"></i></a>
-				</p>
-			</article>
-                   
+                <article class="experience-card">
+                    <div class="company-logo">
+                        <img src="Assets/Greenifly.webp" alt="Greenifly Logo">
+                    </div>
+                    <h3>Greenifly</h3>
+                    <p class="duration">Nov 2022 - Dec 2022</p>
+                    <h4>Entrepreneur Buddy</h4>
+                    <ul>
+                        <li>Researched technical aspects of drone making</li>
+                        <li>Managed social media marketing and recruitment</li>
+                        <li>Handled product pricing and business offerings</li>
+                    </ul>
+                </article>
+            </div>
         </div>
     </section>
+
+    <!-- Rest of the sections remain the same -->
     
-    
-    <!-- ------------------------------------------------------
-    The footer section is not doing much on this page. Add more
-    content if necessary.
-    ------------------------------------------------------- -->
+    <!-- Previous skills, education, contact sections unchanged -->
+	<section class="contact-section">
+		<h2>Let's Connect!</h2>
+		<p><i class="fas fa-envelope"></i> krishnakravi007@gmail.com</p>
+		<p><i class="fas fa-phone"></i> +91 9606140554</p>
+		<p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+		<div class="social-links">
+			<a href="https://github.com/krishnakravi" target="_blank" title="GitHub">
+				<i class="fab fa-github"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/krishna-k-r-15b2a4214/" target="_blank" title="LinkedIn">
+				<i class="fab fa-linkedin"></i>
+			</a>
+		</div>
+	</section>
     <footer class="primary">
-    	<div class="wrapper">
-        	<p class="centered">&copy; 2019 all rights reserved</p>
+        <div class="wrapper">
+            <p>&copy; 2024 Krishna K R</p>
         </div>
     </footer>
-
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<script src="particles.js"></script>
 </body>
+
 </html>

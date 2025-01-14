@@ -1,299 +1,277 @@
-
-/********************* NOTES ************************
-The basic resets below allow you to create your own styling
-without having to fight some of the most annoying built in 
-agent user styles.
-****************************************************/
-
-/************* Basic Resets ***************/
-
-h1, h2, h3, h4, p, ul, ol, blockquote {
-	margin: 0;
-	padding: 0;
+/* Variables and Base Styles */
+:root {
+    --primary: #2d3436;
+    --secondary: #f5f6fa;
+    --accent: #0f63ea;
+    --text: #2d3436;
+    --light-gray: #dfe6e9;
 }
 
-nav ul, nav ol {
-	list-style-type: none;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-/******** Additional resets *********/
-a { text-decoration:none; }
-
-img {
-	display: block;
-	max-width:100%; 
-	height: auto;
-}
-
-* { box-sizing: border-box; }
-
-/************ End CSS Reset  *************/
-
-
-/********************* NOTES ************************
-Below are the only colors I have used. Choose four new
-colors and do a find and replace to replace the hex codes.
-****************************************************/
-
-
-/*********** Colors ***********
-
-primary = #b5b5b5;
-secondary = #efefef;
-accent = #4574b5
-text default = #333333;
-
-
-********************************/
-
-
-/************* Basic Page Rules ************/
-
-
-/********************* NOTES ************************
-I set the background of the page to dark and the main
-font to Georgia for most of the type. The header font
-is set to Arial. You could get two fonts that work well
-together and replace these choices. You may have to adjust
-sizing and spacing as well.
-****************************************************/
-
 
 body {
-	font-family:Georgia;
-	color:#333;
-	background:#333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
-/************* typography ************/
-
-h1, h2, h3, h4, nav { 
-	font-family:Arial;
-	font-weight:bold; 
+/* Typography */
+h1, h2, h3, h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
 }
 
-h1 {
-	font-size:250%;
-	margin-bottom:1em;
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+/* Layout */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-h2 {
-	font-size:170%;
-	margin-bottom:1em;
+section {
+    padding: 4rem 0;
 }
 
-h3 { 
-	font-size:135%;
-	margin-bottom:1em;
+section.secondary {
+    background: var(--primary);
+    color: white;
 }
 
-h4 { 
-	font-size:115%;
-	margin-bottom:.5em;
-}
-	
-
-p {
-	line-height:1.5em;
-	margin-bottom:1em;
+/* Hero Section */
+header.primary {
+    background: var(--primary);
+    color: white;
+    padding: 2rem 0;
 }
 
-a { color: #4574b5; }
-
-.social { font-size:175%; }
-
-.centered { text-align:center; }
-
-/****************** Grid ******************/
-
-.primary { background:#b5b5b5; }
-.secondary { background:#efefef; }
-
-
-/****************** Header and Main Navigation ****************/
-
-header {
-	padding: 20px;
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+    z-index: 1;
 }
 
-header .wrapper {
-	display: flex;
-	flex-direction: column-reverse;
-	flex-wrap: wrap;
+.hero h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
 }
 
-.logo-container {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: flex-end;
+.hero h2 {
+    color: var(--accent);
+    margin: 1rem 0;
 }
 
-#logo {
-	margin-right:20px;
+.tagline {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent);
+    animation: 
+        typewriter 4s steps(50) 1s forwards,
+        blink 0.5s step-end infinite alternate;
+    width: 0;
 }
 
-
-#mainnav {
-	margin-bottom: 20px;
+/*background videos*/
+.background-videos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
-#mainnav ul {
-	display: flex;
-	justify-content: center;
+.left-video, .right-video {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    opacity: 0.5;
 }
 
-#mainnav ul li a {
-	display:block;
-	color: #4574b5;
-	border-left: 2px solid #4574b5;
-	padding:0 20px;
-	font-size:20px;
+.left-video {
+    left: 0;
 }
 
-/********************* NOTES ************************
-Removes the border on the first link...
-****************************************************/
-
-#mainnav ul li:first-of-type a {
-	border:none;
+.right-video {
+    right: 0;
 }
 
-
-/***************** Section Specific Rules *****************/
-
-#work {
-	background:#fff;
-	padding: 20px;
+/* Profile Image */
+.profile-image-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 2rem auto;
+    z-index: 2;
 }
 
-#work img, .additional-projects img {
-	width: 100%;
-	margin-bottom: 10px;
+.profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: rainbow-border 5s linear infinite;
 }
 
-.featured, .projects, #page-template #work section {
-	margin-bottom: 40px;
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-#about-contact, .additional-projects {
-	padding: 20px;
+/* Experience Section */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-#about-contact img {
-	margin-bottom: 10px;
+.experience-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-/********************* NOTES ************************
-I added all this margin to the bottom of the footer so
-that when you click the link for "about" or "contact" in
-the main nav, there is room for them to go all the way to
-the top of the page.
-****************************************************/
+.experience-card:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
+.experience-card .duration {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.experience-card ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+/* Company Logo */
+.company-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Contact Section */
+.contact-section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    font-size: 2rem;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2) rotate(10deg);
+    color: var(--accent);
+}
+
+/* Footer */
 footer {
-	padding: 20px;
-	margin-bottom:600px;
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--primary);
+    color: white;
 }
 
-@media only screen and (min-width: 650px) {
-	#work {
-		padding: 20px 10px;
-	}
-	
-	#work article, h2 {
-		padding: 0 10px;
-	}
-	
-	.projects, #page-template #work section  {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	
-	.projects article, #page-template #work section article {
-		width: 50%;
-	}
-	
-	.additional-projects .wrapper{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	
-	.additional-projects h2 {
-		flex-basis: 100%;
-	}
-	
-	.additional-projects article {
-		width: 50%;
-		padding: 0 10px;
-	}
-	
-	#about-contact {
-		padding: 0;
-	}
-	
-	#about-contact .wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-start;
-		padding: 20px 10px;
-	}
-	
-	#about-contact .profile-photo {
-		flex: 1;
-		padding: 0 10px;
-		width: 100%;
-	}
-	
-	#about-contact article {
-		padding: 0 10px;
-	}
-	
-	#about-contact article:first-of-type {
-		flex: 2;
-	}
-	
-	#about-contact article:last-of-type {
-		flex-basis: 100%;
-	}
-	
+/* Animations */
+@keyframes rainbow-border {
+    0% { border-color: #ff0000; }
+    20% { border-color: #ff9900; }
+    40% { border-color: #33cc33; }
+    60% { border-color: #3399ff; }
+    80% { border-color: #cc33ff; }
+    100% { border-color: #ff0000; }
 }
 
-@media only screen and (min-width: 768px) {
-	
-	.featured {
-		display: flex;
-	}
-	
-	.featured article {
-		flex: 1;
-	}
-	
-	.additional-projects article {
-		width: 25%;
-	}
-	
-	#about-contact .wrapper {
-		flex-wrap: nowrap;
-	}
-	
-	#about-contact article:last-of-type {
-		flex: 2;
-		flex-basis: 0;
-	}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
-@media only screen and (min-width: 1040px) {
-	.wrapper {
-		width: 1020px;
-		margin: auto;
-	}
-	
-	header .wrapper {
-		padding: 0 10px;
-	}
-	
-	/*Change the width here to 33% if you want three articles in a row*/
-	.projects article {
-		width: 25%;
-	}
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hidden Elements */
+#mainnav {
+    display: none;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
