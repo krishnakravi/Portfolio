@@ -1,0 +1,43 @@
+{
+  "name": "krishna-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Modern portfolio website for Krishna K R - Software Engineer",
+  "author": "Krishna K R <krishnakravi007@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/preset-confetti": "^3.2.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
+    "autoprefixer": "^10.4.21",
+    "framer-motion": "^12.23.13",
+    "lucide-react": "^0.544.0",
+    "postcss": "^8.5.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles-engine": "^2.12.0",
+    "tsparticles-preset-confetti": "^2.12.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "tailwindcss": "^3.4.4",
+    "vite": "^7.1.2"
+  }
+}
