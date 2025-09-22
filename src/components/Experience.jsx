@@ -4,7 +4,7 @@ import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react'
 const Experience = () => {
   const experiences = [
     {
-      company: "ACL Digital (Alton Calsoft Labs)",
+      company: "ACL Digital (Alten Calsoft Labs)",
       role: "Data Science Intern",
       duration: "June 2025 - Aug 2025",
       location: "Remote",
