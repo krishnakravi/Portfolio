@@ -7,9 +7,7 @@ const ParticleBackground = () => {
     await loadSlim(engine)
   }, [])
 
-  const particlesLoaded = useCallback(async container => {
-    // console.log(container)
-  }, [])
+  const particlesLoaded = useCallback(async container => {}, [])
 
   return (
     <Particles
@@ -19,69 +17,59 @@ const ParticleBackground = () => {
       className="absolute inset-0 z-0"
       options={{
         background: {
-          color: {
-            value: "transparent",
-          },
+          color: { value: "transparent" },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           events: {
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
+            onClick: { enable: false },
             onHover: {
               enable: true,
-              mode: "repulse",
+              mode: "grab",
             },
             resize: true,
           },
           modes: {
-            push: {
-              quantity: 4,
-            },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
+            grab: {
+              distance: 140,
+              links: { opacity: 0.15 },
             },
           },
         },
         particles: {
           color: {
-            value: ["#3b82f6", "#8b5cf6", "#06b6d4", "#10b981"],
+            value: ["#3b93ff", "#a855f7"],
           },
           links: {
-            color: "#3b82f6",
-            distance: 150,
+            color: "#3b93ff",
+            distance: 180,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.04,
             width: 1,
           },
           move: {
             direction: "none",
             enable: true,
-            outModes: {
-              default: "bounce",
-            },
-            random: false,
-            speed: 1,
+            outModes: { default: "out" },
+            random: true,
+            speed: 0.4,
             straight: false,
           },
           number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
+            density: { enable: true, area: 1200 },
+            value: 40,
           },
           opacity: {
-            value: 0.5,
+            value: { min: 0.1, max: 0.3 },
+            animation: {
+              enable: true,
+              speed: 0.5,
+              minimumValue: 0.05,
+            },
           },
-          shape: {
-            type: "circle",
-          },
+          shape: { type: "circle" },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: 2.5 },
           },
         },
         detectRetina: true,

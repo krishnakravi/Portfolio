@@ -9,77 +9,48 @@ const LoadingScreen = ({ onComplete }) => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(timer)
-          setTimeout(onComplete, 500)
+          setTimeout(onComplete, 400)
           return 100
         }
-        return prev + 2
+        return prev + 3
       })
-    }, 50)
+    }, 40)
 
     return () => clearInterval(timer)
   }, [onComplete])
 
   return (
     <motion.div
-      className="fixed inset-0 bg-dark-900 z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-dark-950 z-50 flex items-center justify-center"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="text-center">
-        {/* Logo Animation */}
+      <div className="relative flex flex-col items-center">
+        {/* Ambient glow */}
+        <div className="absolute -inset-40 bg-primary-500/5 rounded-full blur-3xl" />
+
+        {/* Logo */}
         <motion.div
-          className="text-6xl font-bold mb-8"
-          initial={{ scale: 0.5, opacity: 0 }}
+          className="relative mb-12"
+          initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-            KKR
+          <span className="font-display text-5xl font-bold tracking-tight text-white">
+            Krishna
+            <span className="text-primary-400">.</span>
           </span>
         </motion.div>
 
-        {/* Progress Bar */}
-        <div className="w-64 h-2 bg-dark-700 rounded-full overflow-hidden mb-4">
+        {/* Minimal progress line */}
+        <div className="w-48 h-[2px] bg-white/[0.06] rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+            className="h-full bg-gradient-to-r from-primary-500 to-primary-400 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.1 }}
+            transition={{ duration: 0.1, ease: "linear" }}
           />
-        </div>
-
-        {/* Progress Text */}
-        <motion.p
-          className="text-gray-400 text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Loading... {progress}%
-        </motion.p>
-
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-primary-500/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
         </div>
       </div>
     </motion.div>
