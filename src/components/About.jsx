@@ -1,151 +1,161 @@
 import { motion } from 'framer-motion'
-import { Code, Database, Server, Smartphone, Brain, Shield, GraduationCap, Award } from 'lucide-react'
+import { Code, Database, Server, Brain, GraduationCap, Sparkles } from 'lucide-react'
 
 const About = () => {
   const skills = [
-    { category: "Programming Languages", items: ["Python", "C/C++", "Java", "JavaScript", "HTML", "SQL", "Assembly"], icon: Code },
-    { category: "Frameworks", items: ["React.js", "LangGraph", "FastAPI", "Spring Boot", "Tailwind CSS", "Node.js"], icon: Server },
-    { category: "Additional Skills", items: ["PostgreSQL", "MySQL", "Linux", "LangGraph"], icon: Database },
-    { category: "Specializations", items: ["AI/ML", "Cybersecurity", "Full-Stack Development", "Cloud Computing"], icon: Brain }
+    {
+      category: "Languages",
+      items: ["Python", "C/C++", "Java", "JavaScript", "SQL", "Assembly"],
+      icon: Code,
+      color: "primary"
+    },
+    {
+      category: "Frameworks",
+      items: ["React.js", "LangGraph", "FastAPI", "Spring Boot", "Tailwind CSS", "Node.js"],
+      icon: Server,
+      color: "secondary"
+    },
+    {
+      category: "Databases & Tools",
+      items: ["PostgreSQL", "MySQL", "Linux", "Docker", "Git", "Azure"],
+      icon: Database,
+      color: "accent"
+    },
+    {
+      category: "Specializations",
+      items: ["AI/ML", "Cybersecurity", "Full-Stack Development", "Cloud Computing", "LLMs", "RAG"],
+      icon: Brain,
+      color: "primary"
+    }
   ]
 
-  const education = {
-    institution: "PES University",
-    degree: "Bachelor of Technology in Computer Science",
-    cgpa: "8.06 (As of 6th Semester)",
-    coursework: [
-      "Data Structures", "Software Engineering", "Cloud Computing", "Applied Cryptography",
-      "Computer Networks", "Web Technologies", "Machine Learning", "Information Security",
-      "Enterprise Business Systems", "Large Language Models"
-    ]
+  const coursework = [
+    "Data Structures", "Software Engineering", "Cloud Computing", "Applied Cryptography",
+    "Computer Networks", "Web Technologies", "Machine Learning", "Information Security",
+    "Enterprise Business Systems", "Large Language Models"
+  ]
+
+  const colorMap = {
+    primary: { bg: 'bg-primary-500/10', border: 'border-primary-500/20', text: 'text-primary-400', dot: 'bg-primary-400' },
+    secondary: { bg: 'bg-secondary-500/10', border: 'border-secondary-500/20', text: 'text-secondary-400', dot: 'bg-secondary-400' },
+    accent: { bg: 'bg-accent-500/10', border: 'border-accent-500/20', text: 'text-accent-400', dot: 'bg-accent-400' },
   }
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.08 }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6
-      }
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
     }
   }
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-6">
+    <section id="about" className="section-padding relative">
+      {/* Section ambient */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="max-w-7xl mx-auto"
         >
-          {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-                About Me
-              </span>
+          {/* Section header */}
+          <motion.div variants={itemVariants} className="max-w-2xl mb-16 lg:mb-20">
+            <p className="text-primary-400 font-mono text-sm mb-3 tracking-wider">01 / ABOUT</p>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight">
+              Background &amp; Skills
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Passionate software engineer with expertise in cybersecurity, AI/ML, and full-stack development
+            <p className="text-dark-400 text-lg leading-relaxed">
+              Final-year Computer Science student at PES University with a strong foundation in AI/ML,
+              cybersecurity, and full-stack development. Driven by curiosity and a passion for building
+              systems that make a real impact.
             </p>
           </motion.div>
 
-          {/* Education Section */}
+          {/* Education card */}
           <motion.div variants={itemVariants} className="mb-16">
-            <div className="bg-gradient-to-r from-dark-800/50 to-dark-700/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-primary-500 to-secondary-500 p-3 rounded-lg mr-4">
-                  <GraduationCap className="w-8 h-8" />
+            <div className="card-premium">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-primary-500/10 border border-primary-500/20">
+                    <GraduationCap className="w-6 h-6 text-primary-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-display font-bold text-white">PES University</h3>
+                    <p className="text-dark-400">B.Tech in Computer Science and Engineering</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white">{education.institution}</h3>
-                  <p className="text-primary-400 text-lg">{education.degree}</p>
+                <div className="sm:ml-auto">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium">
+                    CGPA: 8.06
+                  </span>
                 </div>
               </div>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <Award className="w-5 h-5 text-secondary-400 mr-2" />
-                    <span className="text-lg font-semibold">CGPA: {education.cgpa}</span>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold mb-3 text-primary-400">Key Coursework:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {education.coursework.map((course, index) => (
-                      <motion.span
-                        key={index}
-                        className="bg-dark-700/50 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-600"
-                        whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-                      >
-                        {course}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
+
+              <div className="flex flex-wrap gap-2">
+                {coursework.map((course, i) => (
+                  <motion.span
+                    key={i}
+                    className="px-3 py-1.5 text-xs font-medium text-dark-300 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-primary-500/20 hover:text-primary-400 transition-all duration-300 cursor-default"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.03 }}
+                    viewport={{ once: true }}
+                  >
+                    {course}
+                  </motion.span>
+                ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Skills Section */}
+          {/* Skills grid */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-3xl font-bold text-center mb-12">
-              <span className="bg-gradient-to-r from-secondary-400 to-primary-400 bg-clip-text text-transparent">
-                Technical Skills
-              </span>
-            </h3>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-2 mb-8">
+              <Sparkles className="w-5 h-5 text-secondary-400" />
+              <h3 className="font-display text-2xl font-bold text-white">Technical Skills</h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {skills.map((skillGroup, index) => {
                 const IconComponent = skillGroup.icon
+                const colors = colorMap[skillGroup.color]
                 return (
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="bg-gradient-to-br from-dark-800/50 to-dark-700/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-primary-500/50 transition-all duration-300"
-                    whileHover={{ 
-                      scale: 1.02,
-                      boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)"
-                    }}
+                    className="group card-premium p-5"
                   >
-                    <div className="flex items-center mb-4">
-                      <div className="bg-gradient-to-r from-primary-500 to-secondary-500 p-2 rounded-lg mr-3">
-                        <IconComponent className="w-6 h-6" />
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className={`p-2 rounded-lg ${colors.bg} border ${colors.border}`}>
+                        <IconComponent className={`w-4 h-4 ${colors.text}`} />
                       </div>
-                      <h4 className="text-lg font-semibold text-white">{skillGroup.category}</h4>
+                      <h4 className="text-sm font-semibold text-white tracking-wide uppercase">{skillGroup.category}</h4>
                     </div>
-                    
-                    <div className="space-y-2">
-                      {skillGroup.items.map((skill, skillIndex) => (
+
+                    <div className="space-y-2.5">
+                      {skillGroup.items.map((skill, i) => (
                         <motion.div
-                          key={skillIndex}
-                          className="flex items-center justify-between"
-                          initial={{ opacity: 0, x: -20 }}
+                          key={i}
+                          className="flex items-center gap-2.5"
+                          initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: skillIndex * 0.1 }}
+                          transition={{ delay: i * 0.05 }}
+                          viewport={{ once: true }}
                         >
-                          <span className="text-gray-300 text-sm">{skill}</span>
-                          <motion.div
-                            className="w-2 h-2 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
-                            initial={{ scale: 0 }}
-                            whileInView={{ scale: 1 }}
-                            transition={{ delay: skillIndex * 0.1 + 0.2 }}
-                          />
+                          <div className={`w-1 h-1 rounded-full ${colors.dot}`} />
+                          <span className="text-sm text-dark-300 group-hover:text-dark-200 transition-colors">{skill}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -153,35 +163,6 @@ const About = () => {
                 )
               })}
             </div>
-          </motion.div>
-
-          {/* Stats Section */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {[
-              { label: "Years of Learning", value: "4+" },
-              { label: "Projects Completed", value: "10+" },
-              { label: "Technologies Mastered", value: "15+" },
-              { label: "Hackathons Participated", value: "5+" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-6 bg-gradient-to-br from-dark-800/30 to-dark-700/30 rounded-xl border border-gray-700"
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div
-                  className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent mb-2"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
-              </motion.div>
-            ))}
           </motion.div>
         </motion.div>
       </div>
