@@ -63,16 +63,16 @@ export default function Hero() {
           >
             <div className="relative">
               {/* vermilion plate behind */}
-              <div className="absolute -left-4 bottom-0 top-10 w-full bg-vermilion sm:-left-6" aria-hidden="true" />
+              <div className="absolute -bottom-3 -left-3 h-full w-full bg-vermilion sm:-bottom-4 sm:-left-4" aria-hidden="true" />
               <img
-                src="/Assets/krishna-suit-cutout.webp"
+                src="/Assets/krishna-night.jpg"
                 alt="Krishna K R"
-                className="relative z-10 w-full drop-shadow-[0_18px_40px_rgba(22,19,14,0.28)]"
+                className="relative z-10 w-full"
                 draggable="false"
               />
             </div>
-            <figcaption className="relative z-10 mt-3 flex items-center justify-between border-t border-rule pt-2.5">
-              <span className="label">Fig. 01 — The engineer</span>
+            <figcaption className="relative z-10 mt-4 flex items-center justify-between border-t border-rule pt-2.5">
+              <span className="label">Fig. 01 — The engineer, after hours</span>
               <span className="label-red">EST. 2003</span>
             </figcaption>
           </motion.figure>

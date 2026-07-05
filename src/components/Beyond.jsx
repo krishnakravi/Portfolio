@@ -56,7 +56,6 @@ export default function Beyond() {
             </ul>
           </div>
 
-          {/* The red-backdrop studio shot bleeds into the red section */}
           <motion.figure
             className="relative mx-auto w-full max-w-[380px]"
             initial={{ opacity: 0, scale: 0.96 }}
@@ -65,15 +64,15 @@ export default function Beyond() {
             transition={{ duration: 0.8, ease: EASE }}
           >
             <img
-              src="/Assets/krishna-red.jpg"
-              alt="Krishna, studio portrait on red"
-              className="w-full border border-paper/30"
+              src="/Assets/krishna-train.jpg"
+              alt="Krishna grinning in a sleeper coach on an Indian Railways train"
+              className="w-full border-4 border-paper"
               loading="lazy"
               draggable="false"
             />
-            <figcaption className="mt-3 flex items-center justify-between border-t border-paper/40 pt-2.5">
+            <figcaption className="mt-3 flex items-center justify-between pt-1">
               <span className="font-mono text-[10px] uppercase tracking-label text-paper/70">Fig. 02 — Off the clock</span>
-              <span className="font-mono text-[10px] uppercase tracking-label text-paper/70">Studio, 2026</span>
+              <span className="font-mono text-[10px] uppercase tracking-label text-paper/70">Indian Railways</span>
             </figcaption>
           </motion.figure>
         </div>
