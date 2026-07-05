@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { EASE } from '../motion'
 import { Menu, X } from 'lucide-react'
 import { LINKS } from '../data'
 
 const ITEMS = [
-  { id: 'now', label: 'NOW' },
-  { id: 'work', label: 'WORK' },
-  { id: 'aperture', label: 'APERTURE' },
-  { id: 'projects', label: 'PROJECTS' },
-  { id: 'kit', label: 'KIT' },
-  { id: 'contact', label: 'CONTACT' },
+  { id: 'now', label: 'Now' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'kit', label: 'Kit' },
+  { id: 'beyond', label: 'Beyond' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 export default function Nav() {
@@ -22,27 +23,23 @@ export default function Nav() {
 
   return (
     <motion.header
-      className="fixed top-0 inset-x-0 z-[80] border-b border-line bg-ink/80 backdrop-blur-md"
-      initial={{ y: -60, opacity: 0 }}
+      className="fixed inset-x-0 top-0 z-[80] border-b border-rule bg-paper/85 backdrop-blur-md"
+      initial={{ y: -56, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, delay: 2.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-2.5"
+          className="font-display text-lg font-semibold italic tracking-tight"
           aria-label="Back to top"
         >
-          <svg width="22" height="22" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="44" fill="none" stroke="#FFB454" strokeWidth="7" />
-            <circle cx="50" cy="50" r="12" fill="#FFB454" />
-          </svg>
-          <span className="font-display text-sm font-semibold tracking-wide">KRISHNA K R</span>
+          Krishna<span className="text-vermilion">.</span>
         </button>
 
         <nav className="hidden items-center gap-7 md:flex">
           {ITEMS.map((it) => (
-            <button key={it.id} onClick={() => go(it.id)} className="hud transition-colors hover:text-amber">
+            <button key={it.id} onClick={() => go(it.id)} className="draw-link text-sm text-soft transition-colors hover:text-ink">
               {it.label}
             </button>
           ))}
@@ -50,35 +47,26 @@ export default function Nav() {
             href={LINKS.resume}
             target="_blank"
             rel="noreferrer"
-            className="hud-amber border border-amber/50 px-3 py-1.5 transition-colors hover:bg-amber hover:text-ink"
+            className="label-red border border-vermilion/50 px-3.5 py-2 transition-colors hover:bg-vermilion hover:!text-paper"
           >
-            RESUME ↗
+            Resume ↗
           </a>
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <span className="rec-dot h-2 w-2 rounded-full bg-signal" />
-          <span className="hud text-signal">OPEN TO CHAT</span>
-        </div>
-
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X className="h-5 w-5 text-amber" /> : <Menu className="h-5 w-5 text-amber" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-line bg-ink px-5 pb-5 pt-2 md:hidden">
+        <div className="border-t border-rule bg-paper px-5 pb-5 pt-2 md:hidden">
           {ITEMS.map((it) => (
-            <button
-              key={it.id}
-              onClick={() => go(it.id)}
-              className="hud block w-full py-3 text-left transition-colors hover:text-amber"
-            >
+            <button key={it.id} onClick={() => go(it.id)} className="block w-full py-3 text-left text-sm text-soft">
               {it.label}
             </button>
           ))}
-          <a href={LINKS.resume} target="_blank" rel="noreferrer" className="hud-amber block py-3">
-            RESUME ↗
+          <a href={LINKS.resume} target="_blank" rel="noreferrer" className="label-red block py-3">
+            Resume ↗
           </a>
         </div>
       )}

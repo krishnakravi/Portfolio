@@ -2,101 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --amber: #ffb454;
-  --ink: #0b0b0d;
-}
-
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
-  @apply bg-ink text-bone font-body antialiased;
+  @apply bg-paper text-ink font-body antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--amber);
-  color: var(--ink);
+  background: #c42126;
+  color: #f6f3ec;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0b0d;
+  background: #f6f3ec;
 }
 ::-webkit-scrollbar-thumb {
-  background: #26262d;
-  border: 2px solid #0b0b0d;
+  background: #d8d2c4;
+  border: 2px solid #f6f3ec;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffb454;
+  background: #c42126;
 }
 
-/* ------- HUD / viewfinder language ------- */
-
-.hud {
-  @apply font-mono text-[10px] sm:text-[11px] uppercase tracking-hud text-dim;
+/* Mono label — the site's captioning voice */
+.label {
+  @apply font-mono text-[10px] sm:text-[11px] uppercase tracking-label text-soft;
+}
+.label-red {
+  @apply font-mono text-[10px] sm:text-[11px] uppercase tracking-label text-vermilion;
 }
 
-.hud-amber {
-  @apply font-mono text-[10px] sm:text-[11px] uppercase tracking-hud text-amber;
-}
-
-/* Corner brackets, drawn with a single element */
-.bracket {
-  position: relative;
-}
-.bracket::before,
-.bracket::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid var(--amber);
-  pointer-events: none;
-}
-.bracket::before {
-  top: -1px;
-  left: -1px;
-  border-right: none;
-  border-bottom: none;
-}
-.bracket::after {
-  bottom: -1px;
-  right: -1px;
-  border-left: none;
-  border-top: none;
-}
-.bracket-tr::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid var(--amber);
-  border-left: none;
-  border-bottom: none;
-  pointer-events: none;
-}
-.bracket-bl::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid var(--amber);
-  border-right: none;
-  border-top: none;
-  pointer-events: none;
-}
-
-/* Film grain overlay — fixed, above everything, non-interactive */
+/* Print-grain texture, barely there */
 .grain::after {
   content: '';
   position: fixed;
@@ -104,28 +48,10 @@ body {
   z-index: 90;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.05;
-  animation: grain-shift 0.9s steps(4) infinite;
-}
-@keyframes grain-shift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-2%, 3%); }
-  50% { transform: translate(3%, -2%); }
-  75% { transform: translate(-3%, -3%); }
-  100% { transform: translate(2%, 2%); }
+  opacity: 0.032;
 }
 
-/* Vignette to sell the lens feel */
-.vignette::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 89;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 62%, rgba(0, 0, 0, 0.42) 100%);
-}
-
-/* Marquee ticker */
+/* Marquee */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -133,77 +59,45 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 36s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 .marquee-track:hover {
   animation-play-state: paused;
 }
 
-/* Blinking REC dot */
-@keyframes rec-blink {
-  0%, 55% { opacity: 1; }
-  56%, 100% { opacity: 0.15; }
+/* Link underline that draws in from the left */
+.draw-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.rec-dot {
-  animation: rec-blink 1.4s infinite;
-}
-
-/* Subtle scanline sweep on hover targets */
-.frame-card {
-  position: relative;
-  overflow: hidden;
-}
-.frame-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 30%, rgba(255, 180, 84, 0.07) 48%, transparent 62%);
-  transform: translateX(-120%);
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-  z-index: 1;
-}
-.frame-card:hover::before {
-  transform: translateX(120%);
+.draw-link:hover {
+  background-size: 100% 1px;
 }
 
-/* Rule-of-thirds grid lines for the hero */
-.thirds {
-  background-image:
-    linear-gradient(to right, rgba(237, 234, 227, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(237, 234, 227, 0.045) 1px, transparent 1px);
-  background-size: 33.34% 33.34%;
-  background-position: -1px -1px;
+/* Status pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* Film sprocket holes strip */
-.sprockets {
-  background-image: radial-gradient(rgba(237, 234, 227, 0.16) 3.5px, transparent 4px);
-  background-size: 28px 100%;
-  background-position: center;
-}
-
-/* Aperture iris loader */
-@keyframes iris-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.iris-spin {
-  animation: iris-spin 2.4s linear infinite;
-}
-
-/* Focus-pull on portrait: starts soft, snaps sharp */
-@keyframes focus-pull {
-  0% { filter: blur(14px); opacity: 0; transform: scale(1.04); }
-  60% { filter: blur(3px); opacity: 1; }
-  100% { filter: blur(0); opacity: 1; transform: scale(1); }
-}
-.focus-pull {
-  animation: focus-pull 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
-}
-
-/* Big display numerals behind sections */
+/* Big outlined index numerals */
 .ghost-num {
-  -webkit-text-stroke: 1px rgba(237, 234, 227, 0.10);
+  -webkit-text-stroke: 1px rgba(22, 19, 14, 0.16);
   color: transparent;
+}
+
+/* Reduced motion: kill the marquee drift */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

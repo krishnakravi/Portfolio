@@ -1,56 +1,55 @@
 import { motion } from 'framer-motion'
+import { EASE } from '../motion'
 import { Github, Linkedin, Mail, Phone, FileText } from 'lucide-react'
 import { LINKS } from '../data'
 
 const CHANNELS = [
-  { icon: Mail, label: 'EMAIL', value: LINKS.email, href: `mailto:${LINKS.email}` },
-  { icon: Linkedin, label: 'LINKEDIN', value: 'krishna-k-r', href: LINKS.linkedin },
-  { icon: Github, label: 'GITHUB', value: 'krishnakravi', href: LINKS.github },
-  { icon: Phone, label: 'PHONE', value: LINKS.phone, href: `tel:${LINKS.phone.replace(/\s/g, '')}` },
-  { icon: FileText, label: 'RESUME', value: 'PDF · 1 PAGE', href: LINKS.resume },
+  { icon: Mail, label: 'Email', value: LINKS.email, href: `mailto:${LINKS.email}` },
+  { icon: Linkedin, label: 'LinkedIn', value: 'krishna-k-r', href: LINKS.linkedin },
+  { icon: Github, label: 'GitHub', value: 'krishnakravi', href: LINKS.github },
+  { icon: Phone, label: 'Phone', value: LINKS.phone, href: `tel:${LINKS.phone.replace(/\s/g, '')}` },
+  { icon: FileText, label: 'Resume', value: 'PDF · 1 page', href: LINKS.resume },
 ]
 
 export default function Contact() {
   return (
-    <section id="contact" className="thirds relative">
-      <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-36">
+    <section id="contact">
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-32">
         <motion.p
-          className="hud-amber mb-6 text-center"
+          className="label-red mb-5 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          FINAL FRAME — SHUTTER STILL OPEN
+          The back page
         </motion.p>
 
         <motion.h2
-          className="mx-auto max-w-4xl text-center font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl"
-          initial={{ opacity: 0, y: 30 }}
+          className="mx-auto max-w-3xl text-center font-display text-5xl font-medium leading-[1.02] tracking-tight sm:text-7xl"
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: EASE }}
         >
-          Let's make something
+          Let&apos;s build something
           <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #FFB454' }}>
-            worth framing.
-          </span>
+          <span className="italic text-vermilion">people actually use.</span>
         </motion.h2>
 
         <motion.p
-          className="mx-auto mt-6 max-w-xl text-center leading-relaxed text-dim"
+          className="mx-auto mt-6 max-w-lg text-center leading-relaxed text-soft"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
         >
-          Interesting problem? Good coffee? A phone camera that should do more than it does?
-          My inbox develops fast.
+          Interesting problem, good coffee, or a role worth talking about —
+          my inbox is open and I reply fast.
         </motion.p>
 
         <motion.div
-          className="mx-auto mt-14 grid max-w-4xl gap-px border border-line bg-line sm:grid-cols-3 lg:grid-cols-5"
-          initial={{ opacity: 0, y: 24 }}
+          className="mx-auto mt-14 grid max-w-4xl gap-px border border-rule bg-rule sm:grid-cols-3 lg:grid-cols-5"
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -59,25 +58,25 @@ export default function Contact() {
             <a
               key={c.label}
               href={c.href}
-              target={c.href.startsWith('http') || c.href.startsWith('/') ? '_blank' : undefined}
+              target={c.href.startsWith('mailto') || c.href.startsWith('tel') ? undefined : '_blank'}
               rel="noreferrer"
-              className="frame-card group flex flex-col items-center gap-3 bg-ink px-4 py-8 text-center transition-colors hover:bg-raise"
+              className="group flex flex-col items-center gap-3 bg-paper px-4 py-8 text-center transition-colors hover:bg-card"
             >
-              <c.icon className="h-5 w-5 text-dim transition-colors group-hover:text-amber" />
+              <c.icon className="h-5 w-5 text-soft transition-colors group-hover:text-vermilion" />
               <div>
-                <p className="hud-amber">{c.label}</p>
-                <p className="mt-1 break-all font-mono text-[11px] text-dim group-hover:text-bone">{c.value}</p>
+                <p className="label-red">{c.label}</p>
+                <p className="mt-1 break-all font-mono text-[11px] text-soft group-hover:text-ink">{c.value}</p>
               </div>
             </a>
           ))}
         </motion.div>
       </div>
 
-      <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-6 sm:flex-row sm:px-8">
-          <p className="hud">© {new Date().getFullYear()} KRISHNA K R — ALL FRAMES RESERVED</p>
-          <p className="hud">
-            DESIGNED IN A DARKROOM · BUILT WITH REACT · <span className="text-amber">ƒ/1.8 FOREVER</span>
+      <footer className="border-t border-rule">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 py-6 sm:flex-row sm:px-8">
+          <p className="label">© {new Date().getFullYear()} Krishna K R</p>
+          <p className="label">
+            Set in Fraunces &amp; Switzer · Built with React · <span className="text-vermilion">Bangalore, IST</span>
           </p>
         </div>
       </footer>

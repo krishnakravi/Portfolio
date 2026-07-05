@@ -4,23 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#0B0B0D',
-        panel: '#121216',
-        raise: '#1A1A20',
-        line: 'rgba(237,234,227,0.10)',
-        bone: '#EDEAE3',
-        dim: '#8F8C85',
-        amber: '#FFB454',
-        ember: '#FF6B35',
-        signal: '#4ADE80',
+        paper: '#F6F3EC',
+        card: '#FDFBF6',
+        ink: '#16130E',
+        soft: '#6F6A5F',
+        rule: 'rgba(22,19,14,0.14)',
+        vermilion: '#C42126',
+        dark: '#131109',
       },
       fontFamily: {
-        display: ['"Clash Display"', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
         body: ['Switzer', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       letterSpacing: {
-        hud: '0.18em',
+        label: '0.16em',
       },
     },
   },

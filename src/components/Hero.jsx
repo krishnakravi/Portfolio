@@ -1,112 +1,83 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { EASE } from '../motion'
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { LINKS } from '../data'
 
-const ease = [0.22, 1, 0.36, 1]
-
 const rise = (delay) => ({
-  initial: { y: 42, opacity: 0 },
+  initial: { y: 36, opacity: 0 },
   animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.85, delay, ease },
+  transition: { duration: 0.8, delay, ease: EASE },
 })
 
 export default function Hero() {
   return (
-    <section className="thirds relative flex min-h-screen flex-col justify-end overflow-hidden pt-24">
-      {/* HUD readouts pinned to the frame */}
-      <motion.div
-        className="pointer-events-none absolute inset-x-0 top-16 z-10 flex items-start justify-between px-5 sm:top-20 sm:px-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.3, duration: 0.8 }}
-      >
-        <div className="space-y-1">
-          <p className="hud">FRAME 001 / PORTFOLIO.RAW</p>
-          <p className="hud">12.9716° N · 77.5946° E — BLR</p>
-        </div>
-        <div className="space-y-1 text-right">
-          <p className="hud-amber">ƒ/1.8 · 1/250 · ISO 100</p>
-          <p className="hud">WB AUTO · AF-LOCK</p>
-        </div>
-      </motion.div>
+    <section className="relative overflow-hidden border-b border-rule pt-24 sm:pt-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        {/* Masthead top rule */}
+        <motion.div {...rise(0.25)} className="flex items-center justify-between border-b-2 border-ink pb-3">
+          <p className="label">№ 001 — Portfolio, 2026 edition</p>
+          <p className="label hidden sm:block">Bangalore, India · IST</p>
+        </motion.div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <div className="grid items-end gap-6 lg:grid-cols-[1fr_auto]">
-          {/* Headline block */}
-          <div className="pb-10 lg:pb-20">
-            <motion.p {...rise(1.7)} className="hud-amber mb-5">
-              SOFTWARE ENGINEER — BANGALORE, INDIA
-            </motion.p>
+        <div className="grid gap-8 pt-10 sm:pt-14 lg:grid-cols-[1.25fr_0.75fr] lg:gap-4">
+          {/* Headline */}
+          <div className="flex flex-col justify-between pb-10 sm:pb-16">
+            <div>
+              <motion.h1 {...rise(0.35)} className="font-display font-medium leading-[0.95] tracking-tight">
+                <span className="block text-[16.5vw] sm:text-[13vw] lg:text-[7.2rem]">Krishna</span>
+                <span className="block text-[16.5vw] italic text-vermilion sm:text-[13vw] lg:text-[7.2rem]">K R</span>
+              </motion.h1>
 
-            <h1 className="font-display font-semibold leading-[0.93] tracking-tight">
-              <motion.span {...rise(1.8)} className="block text-[15vw] sm:text-[11vw] lg:text-[8.5rem]">
-                KRISHNA
-              </motion.span>
-              <motion.span
-                {...rise(1.95)}
-                className="block text-[15vw] text-transparent sm:text-[11vw] lg:text-[8.5rem]"
-                style={{ WebkitTextStroke: '1.5px #EDEAE3' }}
-              >
-                K&nbsp;R
-              </motion.span>
-            </h1>
+              <motion.p {...rise(0.5)} className="mt-8 max-w-xl text-base leading-relaxed text-soft sm:text-lg">
+                Software engineer at <span className="text-ink">Telstra</span>. At{' '}
+                <span className="text-ink">Myntra</span>, I rebuilt the filters experience used by
+                millions — adoption rose <span className="font-medium text-vermilion">10.2%</span>.
+                I build mobile &amp; web products end to end, and side projects for the fun of it.
+              </motion.p>
+            </div>
 
-            <motion.p {...rise(2.15)} className="mt-7 max-w-xl text-base leading-relaxed text-dim sm:text-lg">
-              I ship mobile & web surfaces that millions actually touch — filters at{' '}
-              <span className="text-bone">Myntra</span>, now engineering at{' '}
-              <span className="text-bone">Telstra</span> — and after hours I build{' '}
-              <span className="text-amber">Aperture</span>, a pro-grade Android camera app.
-            </motion.p>
-
-            <motion.div {...rise(2.3)} className="mt-9 flex flex-wrap items-center gap-4">
+            <motion.div {...rise(0.62)} className="mt-10 flex flex-wrap items-center gap-4">
               <button
-                onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center gap-3 bg-amber px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-hud text-ink transition-transform hover:-translate-y-0.5"
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group flex items-center gap-2.5 bg-ink px-6 py-3.5 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-vermilion"
               >
-                SEE THE WORK
-                <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+                Selected work
+                <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
               </button>
               <a
                 href={`mailto:${LINKS.email}`}
-                className="hud border border-line px-6 py-3.5 transition-colors hover:border-amber hover:text-amber"
+                className="group flex items-center gap-2 font-mono text-xs uppercase tracking-label text-ink"
               >
-                GET IN TOUCH
+                <span className="draw-link">Get in touch</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-vermilion transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </motion.div>
           </div>
 
-          {/* Portrait in a focus bracket */}
-          <motion.div
-            className="relative mx-auto w-[240px] shrink-0 sm:w-[300px] lg:w-[360px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+          {/* Portrait plate */}
+          <motion.figure
+            className="relative mx-auto w-full max-w-[300px] self-end sm:max-w-[340px]"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.45, ease: EASE }}
           >
-            <div className="bracket bracket-tr bracket-bl relative">
+            <div className="relative">
+              {/* vermilion plate behind */}
+              <div className="absolute -left-4 bottom-0 top-10 w-full bg-vermilion sm:-left-6" aria-hidden="true" />
               <img
-                src="/Assets/krishna-cutout.png"
+                src="/Assets/krishna-suit-cutout.webp"
                 alt="Krishna K R"
-                className="focus-pull relative z-10 w-full drop-shadow-[0_24px_60px_rgba(0,0,0,0.65)]"
+                className="relative z-10 w-full drop-shadow-[0_18px_40px_rgba(22,19,14,0.28)]"
                 draggable="false"
               />
-              {/* Amber glow behind subject */}
-              <div className="absolute inset-x-8 bottom-0 top-16 -z-0 rounded-full bg-amber/[0.09] blur-3xl" />
             </div>
-            <motion.div
-              className="mt-4 flex items-center justify-between"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5 }}
-            >
-              <p className="hud">SUBJECT — IN FOCUS</p>
-              <p className="hud-amber">●&nbsp;TRACKING</p>
-            </motion.div>
-          </motion.div>
+            <figcaption className="relative z-10 mt-3 flex items-center justify-between border-t border-rule pt-2.5">
+              <span className="label">Fig. 01 — The engineer</span>
+              <span className="label-red">EST. 2003</span>
+            </figcaption>
+          </motion.figure>
         </div>
       </div>
-
-      {/* bottom frame line */}
-      <div className="relative z-10 border-t border-line" />
     </section>
   )
 }

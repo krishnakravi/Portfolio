@@ -6,65 +6,70 @@ export const LINKS = {
   resume: '/Assets/Krishna_K_R_Resume.pdf',
 }
 
+export const STATS = [
+  { value: '+10.2%', label: 'filter adoption — A/B-tested filters revamp at Myntra' },
+  { value: '60s → 12s', label: 'enterprise DB query time cut at Alten Calsoft' },
+  { value: 'ICCET 2026', label: 'published & presented — capstone research, Chennai' },
+  { value: '8.30', label: 'CGPA at PES University — DAC Scholar' },
+]
+
 export const EXPERIENCE = [
   {
-    frame: '01',
+    index: '01',
     org: 'Telstra',
     role: 'Associate Software Engineer',
     period: '2026 — Present',
-    location: 'Bangalore, India',
-    logo: '/Assets/telstra-logo.png',
-    logoBg: '#ffffff',
-    status: 'NOW RECORDING',
+    logo: '/Assets/telstra-logo.webp',
+    current: true,
     points: [
-      'Presently working at Telstra as an Associate Software Engineer.',
-      'Building on a foundation of production mobile & web engineering at consumer scale.',
+      'Presently working at Telstra, building on a foundation of production mobile & web engineering at consumer scale.',
     ],
   },
   {
-    frame: '02',
+    index: '02',
     org: 'Myntra',
     sub: 'Flipkart Group · Search & Filters',
     role: 'SDE Intern',
-    period: 'Jan 2026 — Jun 2026',
-    location: 'Bangalore, India',
-    logo: '/Assets/myntra-logo.png',
-    logoBg: '#ffffff',
-    metric: { value: '+10.2%', label: 'filter adoption' },
+    period: 'Jan — Jun 2026',
+    logo: '/Assets/myntra-logo.webp',
     points: [
-      'Revamped the main filters page for millions of MAUs — turned the legacy page into a unified scroll layout with new icons, widgets, API state handling and a long tail of edge cases.',
-      'Shipped production-ready React Native across the search-filters surface; fixed two production bugs in the product listing page.',
-      'Picked up Android profiling and QA test automation along the way.',
+      'Revamped the main filters page for millions of MAUs — replaced the legacy page with a unified scroll layout with new icons, widgets, API state handling and a long tail of edge cases. The A/B-tested revamp lifted overall filter adoption by 10.2%.',
+      'Shipped production React Native and JavaScript across the search-filters surface; fixed two production bugs in the product listing page.',
+      'Picked up Android performance profiling and QA test automation working alongside PMs, designers and backend engineers.',
     ],
   },
   {
-    frame: '03',
+    index: '03',
     org: 'Alten Calsoft Labs',
     role: 'Software Development Intern',
-    period: 'Jun 2025 — Aug 2025',
-    location: 'Bangalore, India',
+    period: 'Jun — Aug 2025',
     logo: '/Assets/ACL_Digital_Logo.jpg',
-    logoBg: '#ffffff',
-    metric: { value: '-88%', label: 'query time · 60s → 12s' },
     points: [
-      'Optimized enterprise database query performance by 88% via SQL indexing and query restructuring.',
-      'Built data extraction workflows processing hundreds of queries in a 2-person agile team.',
+      'Cut enterprise database query time from 60s to 12s (-88%) through SQL indexing and query restructuring; built data-extraction workflows in a 2-person agile team.',
     ],
   },
   {
-    frame: '04',
+    index: '04',
     org: 'CIE, PES University',
     role: 'Tech Research Analyst',
-    period: 'Jan 2024 — May 2024',
-    location: 'Bangalore, India',
-    logo: '/Assets/CIE logo.jpg',
-    logoBg: '#ffffff',
+    period: 'Jan — May 2024',
+    logo: '/Assets/CIE-logo.jpg',
     points: [
-      'Fine-tuned Mistral 7B on medical datasets for healthcare NLP.',
-      'Deployed Gemini 2B locally via LM Studio with Open Interpreter.',
+      'Fine-tuned Mistral 7B on medical datasets for healthcare NLP; deployed Gemini 2B locally via LM Studio with Open Interpreter.',
     ],
   },
 ]
+
+export const FEATURED = {
+  name: 'Aperture',
+  tag: 'SIDE PROJECT · SHIPPED',
+  year: '2026',
+  stack: ['Kotlin', 'Jetpack Compose', 'CameraX', 'Camera2', 'GL'],
+  body:
+    'I noticed a market gap — stock camera apps hide the hardware — so I built a pro-grade Android camera for fun: full manual control, a night mode that merges eight aligned RAW frames into one clean DNG, dual-camera recording via a GL compositor, slow-motion, panorama, and histogram / zebra / focus-peaking assists. Capability-probed per device, degrades instead of crashing, signed release build.',
+  image: '/Assets/aperture-ui.jpg',
+  imageCaption: 'Actual app UI — not a mockup',
+}
 
 export const PROJECTS = [
   {
@@ -106,30 +111,12 @@ export const PROJECTS = [
 ]
 
 export const SKILLS = [
-  {
-    group: 'Languages',
-    items: ['JavaScript', 'TypeScript', 'Python', 'Kotlin', 'C', 'SQL'],
-  },
-  {
-    group: 'Mobile & Frontend',
-    items: ['React Native (production)', 'React', 'Next.js', 'Jetpack Compose', 'Tailwind CSS'],
-  },
-  {
-    group: 'Backend & Data',
-    items: ['Node.js', 'Express', 'Flask', 'PostgreSQL', 'MongoDB', 'REST APIs'],
-  },
-  {
-    group: 'ML / AI',
-    items: ['TensorFlow', 'Scikit-learn', 'LangGraph', 'NLP', 'GenAI', 'Computer Vision'],
-  },
-  {
-    group: 'Cloud & Tooling',
-    items: ['GCP', 'AWS', 'Docker', 'Vercel', 'CI/CD', 'Android Profiling', 'QA Automation'],
-  },
-  {
-    group: 'Security',
-    items: ['Network Security', 'Pen Testing', 'FAISS', 'CICFlowmeter', 'Vulnerability Assessment'],
-  },
+  { group: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'Kotlin', 'C', 'SQL'] },
+  { group: 'Mobile & Frontend', items: ['React Native', 'React', 'Next.js', 'Jetpack Compose', 'Tailwind CSS'] },
+  { group: 'Backend & Data', items: ['Node.js', 'Express', 'Flask', 'PostgreSQL', 'MongoDB', 'REST APIs'] },
+  { group: 'ML / AI', items: ['TensorFlow', 'Scikit-learn', 'LangGraph', 'NLP', 'GenAI', 'Computer Vision'] },
+  { group: 'Cloud & Tooling', items: ['GCP', 'AWS', 'Docker', 'Vercel', 'CI/CD', 'Android Profiling', 'QA Automation'] },
+  { group: 'Security', items: ['Network Security', 'Pen Testing', 'FAISS', 'CICFlowmeter'] },
 ]
 
 export const TICKER = [

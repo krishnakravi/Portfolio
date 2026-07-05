@@ -1,76 +1,59 @@
 import { motion } from 'framer-motion'
+import { EASE } from '../motion'
 import SectionHead from './SectionHead'
 import { EXPERIENCE } from '../data'
 
 export default function Experience() {
   return (
-    <section id="work" className="relative border-b border-line bg-panel/40">
-      <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <SectionHead num="02" kicker="CONTACT SHEET — CAREER" title="The roll so far" right="4 FRAMES · DEVELOPED" />
+    <section id="experience" className="border-b border-rule">
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+        <SectionHead num="02" kicker="The ledger" title="Experience" right="4 entries" />
 
-        {/* Film strip top edge */}
-        <div className="sprockets h-6 border-x border-t border-line" />
-
-        <div className="divide-y divide-line border border-line">
+        <div className="divide-y divide-rule border-b border-rule">
           {EXPERIENCE.map((job, i) => (
             <motion.article
               key={job.org}
-              className="frame-card group grid gap-6 bg-ink p-6 sm:p-8 lg:grid-cols-[110px_1fr_auto]"
-              initial={{ opacity: 0, y: 30 }}
+              className="group grid gap-4 py-8 sm:py-10 lg:grid-cols-[64px_1fr_1.4fr_auto] lg:gap-8"
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.65, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: i * 0.05, ease: EASE }}
             >
-              {/* Frame number + logo */}
-              <div className="flex items-center gap-5 lg:flex-col lg:items-start lg:gap-4">
-                <span className="hud">FR&nbsp;{job.frame}</span>
-                <div
-                  className="flex h-16 w-16 items-center justify-center rounded-sm p-2 grayscale transition-all duration-500 group-hover:grayscale-0"
-                  style={{ background: job.logoBg }}
-                >
-                  <img src={job.logo} alt={job.org} className="max-h-full max-w-full object-contain" />
-                </div>
-              </div>
+              <span className="label hidden pt-1.5 lg:block">/{job.index}</span>
 
-              {/* Body */}
-              <div>
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="font-display text-2xl font-semibold sm:text-3xl">{job.org}</h3>
-                  {job.sub && <span className="text-sm text-dim">{job.sub}</span>}
-                </div>
-                <p className="mt-1 font-mono text-xs uppercase tracking-hud text-amber">{job.role}</p>
-                <ul className="mt-4 max-w-2xl space-y-2.5">
-                  {job.points.map((p, j) => (
-                    <li key={j} className="flex gap-3 text-[15px] leading-relaxed text-dim">
-                      <span className="mt-[9px] h-px w-4 shrink-0 bg-amber/70" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Meta column */}
-              <div className="flex flex-row items-center gap-6 lg:w-44 lg:flex-col lg:items-end lg:gap-3 lg:text-right">
+              <div className="flex items-start gap-4">
+                <img
+                  src={job.logo}
+                  alt=""
+                  className="mt-1 h-11 w-11 rounded-sm border border-rule bg-white object-contain p-1 grayscale transition-all duration-500 group-hover:grayscale-0"
+                />
                 <div>
-                  <p className="hud">{job.period}</p>
-                  <p className="hud mt-1">{job.location}</p>
+                  <h3 className="font-display text-2xl font-medium leading-tight sm:text-3xl">
+                    {job.org}
+                  </h3>
+                  {job.sub && <p className="mt-0.5 text-sm text-soft">{job.sub}</p>}
+                  <p className="label-red mt-2">{job.role}</p>
                 </div>
-                {job.metric && (
-                  <div className="lg:mt-4">
-                    <p className="font-display text-3xl font-semibold text-amber">{job.metric.value}</p>
-                    <p className="hud mt-1 normal-case !tracking-wider">{job.metric.label}</p>
-                  </div>
-                )}
-                {job.status && (
-                  <span className="hud-amber border border-amber/40 px-2.5 py-1 lg:mt-4">{job.status}</span>
+              </div>
+
+              <ul className="space-y-2.5 lg:pt-1">
+                {job.points.map((p, j) => (
+                  <li key={j} className="flex gap-3 text-[15px] leading-relaxed text-soft">
+                    <span className="mt-[10px] h-px w-4 shrink-0 bg-vermilion/80" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-start gap-3 lg:flex-col lg:items-end lg:text-right">
+                <p className="label pt-1">{job.period}</p>
+                {job.current && (
+                  <span className="label-red border border-vermilion/40 px-2.5 py-1">Present</span>
                 )}
               </div>
             </motion.article>
           ))}
         </div>
-
-        {/* Film strip bottom edge */}
-        <div className="sprockets h-6 border-x border-b border-line" />
       </div>
     </section>
   )
