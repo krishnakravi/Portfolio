@@ -25,8 +25,8 @@ export default function Kit() {
               <p className="pt-0.5 font-mono text-[13px] leading-relaxed text-soft">
                 {g.items.map((s, j) => (
                   <span key={s}>
-                    <span className="transition-colors hover:text-vermilion">{s}</span>
-                    {j < g.items.length - 1 && <span className="mx-2 text-rule">/</span>}
+                    <span className="inline-block whitespace-nowrap transition-colors hover:text-vermilion">{s}</span>
+                    {j < g.items.length - 1 && <span className="mx-2 text-rule">/</span>}{' '}
                   </span>
                 ))}
               </p>
